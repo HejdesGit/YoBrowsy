@@ -155,20 +155,40 @@ module.exports = function (grunt) {
       }
     },
     browserify: {
+      bower: {
+        src: ['<%= yeoman.app %>/scripts/main.js'],
+        dest: '.tmp/scripts/vendor.js',
+        options: {
+          transform: ['debowerify']
+        }
+      },
       vendor: {
         src: [],
         dest: '.tmp/scripts/vendor.js',
         options: {
           debug: true,
           require: ['jquery']
+          //shim: {
+          //  FlipClock: {
+          //    path: '<%= bowerrc.directory %>/FlipClock/compiled/flipclock.js',
+          //    exports: 'FlipClock',
+          //    depends: {
+          //      'jQuery': 'jquery'
+          //    }
+          //  }
+          //}
         }
       },
       dev: {
         src: ['<%= yeoman.app %>/scripts/main.js'],
-        dest: '.tmp/scripts/main.js',
+        dest: '.tmp/scripts/main2.js',
         options: {
           debug: true,
-          external: ['jquery']
+          transform: ['debowerify']
+          //alias:
+          //  [
+          //    'jQuery:jquery'
+          //  ]
         }
       },
       distVendor: {
@@ -192,6 +212,9 @@ module.exports = function (grunt) {
         standalone: 'mybundle'
       },
       example: {
+        options: {
+          external: ['jquery']
+        },
         src: './<%= yeoman.app %>/scripts/main.js',
         dest: '.tmp/scripts/main.js'
       }
@@ -376,7 +399,7 @@ module.exports = function (grunt) {
       server: [
         'sass:dev',
         'browserify:dev',
-        'browserify:vendor',
+        //'browserify:bower',
         'copy:styles'
       ],
       test: [
@@ -456,7 +479,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('dev', [
-    'watchify',
+    //'watchify',
     'clean:server',
     'concurrent:server',
     'concat:dev',

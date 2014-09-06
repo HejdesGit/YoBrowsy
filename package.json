@@ -38,10 +38,11 @@
     "grunt-scss-lint": "~0.1.12",
     "grunt-watchify": "~0.1.0",
     "load-grunt-config": "~0.13.1",
-    "grunt-newer": "~0.7.0"
+    "grunt-newer": "~0.7.0",
+    "grunt-browserify-bower": "~0.1.4",
+    "array-extended": "0.0.11"
   },
   "dependencies": {
-    "jquery": "^2.1.1",
     "express": "^4.1.2",
     "body-parser": "^1.1.2",
     "errorhandler": "^1.0.1",

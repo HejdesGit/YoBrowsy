@@ -6,10 +6,10 @@
  */
 
 'use strict';
+require('jquery');
+window.jQuery = require('jquery');
+window.jquery = require('jquery');
+require('FlipClock');
+var random = require('./random');
 
-var test = require('./test');
-var $ = require('jquery');
-
-$('head').append('HEJDE');
-
-test();
+random.Init();
