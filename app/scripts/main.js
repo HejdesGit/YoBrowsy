@@ -7,9 +7,9 @@
 
 'use strict';
 
-var test = require("./test");
+var test = require('./test');
 var $ = require('jquery');
 
-$('head').append("HEJDE");
+$('head').append('HEJDE');
 
 test();

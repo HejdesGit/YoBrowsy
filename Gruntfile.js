@@ -1,4 +1,3 @@
-// Generated on 2014-06-29 using generator-browserify 0.3.3
 'use strict';
 
 // # Globbing
@@ -19,7 +18,7 @@ module.exports = function (grunt) {
     // configurable paths
     yeoman: {
       app: 'app',
-      dist: 'dist',
+      dist: 'public',
       vendor: '<%= bowerrc.directory %>',
       node: 'node_modules'
     },
@@ -161,7 +160,7 @@ module.exports = function (grunt) {
         dest: '.tmp/scripts/vendor.js',
         options: {
           debug: true,
-          require: ['jquery', 'import-io']
+          require: ['jquery']
         }
       },
       dev: {
@@ -169,14 +168,21 @@ module.exports = function (grunt) {
         dest: '.tmp/scripts/main.js',
         options: {
           debug: true,
-          external: ['jquery', 'import-io']
+          external: ['jquery']
         }
       },
-      dist1: {
+      distVendor: {
+        src: [],
+        dest: '<%= yeoman.dist %>/scripts/vendor.js',
+        options: {
+          require: ['jquery']
+        }
+      },
+      dist: {
         src: ['<%= yeoman.app %>/scripts/*.js'],
         dest: '<%= yeoman.dist %>/scripts/main.js',
         options: {
-          require: ['jquery']
+          external: ['jquery']
         }
       }
     },
@@ -217,17 +223,6 @@ module.exports = function (grunt) {
         dest: '.tmp/scripts/app.js'
       }
     },
-    // not used since Uglify task does concat,
-    // but still available if needed
-    /*concat: {
-     dist: {}
-     },*/
-    // not enabled since usemin task does concat and uglify
-    // check index.html to edit your build targets
-    // enable this task if you prefer defining your build targets here
-    /*uglify: {
-     dist: {}
-     },*/
     'bower-install': {
       app: {
         html: '<%= yeoman.app %>/index.html',
@@ -279,22 +274,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-    cssmin: {
-      // This task is pre-configured if you do not wish to use Usemin
-      // blocks for your CSS. By default, the Usemin block from your
-      // `index.html` will take care of minification, e.g.
-      //
-      //     <!-- build:css({.tmp,app}) styles/main.css -->
-      //
-      // dist: {
-      //     files: {
-      //         '/styles/main.css': [
-      //             '.tmp/styles/{,*/}*.css',
-      //             '/styles/{,*/}*.css'
-      //         ]
-      //     }
-      // }
-    },
     htmlmin: {
       dist: {
         options: {
@@ -340,16 +319,58 @@ module.exports = function (grunt) {
         src: '{,*/}*.css'
       }
     },
-
     modernizr: {
-      devFile: '<%= yeoman.vendor %>/modernizr/modernizr.js',
-      outputFile: '<%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
-      files: [
-        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-        '<%= yeoman.dist %>/styles/{,*/}*.css',
-        '!<%= yeoman.dist %>/scripts/vendor/*'
-      ],
-      uglify: true
+      dist: {
+        // [REQUIRED] Path to the build you're using for development.
+        'devFile': '<%= yeoman.vendor %>/modernizr/modernizr.js',
+
+        // [REQUIRED] Path to save out the built file.
+        'outputFile': '<%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
+
+        // Based on default settings on http://modernizr.com/download/
+        //'extra' : {
+        //  'shiv' : true,
+        //  'printshiv' : false,
+        //  'load' : true,
+        //  'mq' : false,
+        //  'cssclasses' : true
+        //},
+
+        // Based on default settings on http://modernizr.com/download/
+        //'extensibility' : {
+        //  'addtest' : false,
+        //  'prefixed' : false,
+        //  'teststyles' : false,
+        //  'testprops' : false,
+        //  'testallprops' : false,
+        //  'hasevents' : false,
+        //  'prefixes' : false,
+        //  'domprefixes' : false
+        //},r
+
+        // By default, source is uglified before saving
+        'uglify': true,
+
+        // Define any tests you want to implicitly include.
+        'tests': [],
+
+        // By default, this task will crawl your project for references to Modernizr tests.
+        // Set to false to disable.
+        'parseFiles': true,
+
+        // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
+        // You can override this by defining a 'files' array below.
+        // 'files' : {
+        // 'src': []
+        // },
+
+        // When parseFiles = true, matchCommunityTests = true will attempt to
+        // match user-contributed tests.
+        'matchCommunityTests': false,
+
+        // Have custom Modernizr tests? Add paths to their location here.
+        'customTests': []
+      }
     },
     concurrent: {
       server: [
@@ -367,8 +388,8 @@ module.exports = function (grunt) {
       ],
       dist: [
         'sass:dist',
-        'browserify:dist1',
-        //'browserify:dist2',
+        'browserify:distVendor',
+        'browserify:dist',
         'copy:styles',
         'imagemin',
         'svgmin',
@@ -422,10 +443,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
-    //'cssmin',
-    //'uglify',
-//    'modernizr',
+    'modernizr',
     'copy:dist',
     'rev',
     'usemin'
@@ -437,7 +455,7 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerTask('watchifffi', [
+  grunt.registerTask('dev', [
     'watchify',
     'clean:server',
     'concurrent:server',

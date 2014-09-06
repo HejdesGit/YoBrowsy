@@ -1,5 +1,7 @@
+'use strict';
+
 var hej = function() {
-  alert("hejde");
+  window.console.log('hej');
 };
 
 module.exports = hej;
