@@ -1,16 +1,16 @@
 /* Get the bourbon mixin from http://bourbon.io */
 /* Reset */
 .flip-clock-wrapper * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .flip-clock-wrapper a {
@@ -56,11 +56,11 @@
 
 .flip-clock-wrapper:before,
 .flip-clock-wrapper:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 .flip-clock-wrapper:after {
-    clear: both;
+  clear: both;
 }
 
 /* Skeleton */
@@ -108,7 +108,7 @@
   width: 100%;
   height: 50%;
   font-size: 80px;
-  overflow: hidden; 
+  overflow: hidden;
   outline: 1px solid transparent; }
 
 .flip-clock-wrapper ul li a div .shadow {
