@@ -2,3 +2,16 @@
    Base Stylesheet
    _base.scss
    ========================================================================== */
+
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 4em !important; //TODO: FIX
+}
+
+.flip-clock-label {
+  font-family: 'Montserrat', sans-serif;
+}
+
+input{
+  font-family: 'Montserrat', sans-serif !important; //TODO: FIX
+}

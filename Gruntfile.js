@@ -39,10 +39,6 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
-      mocha: {
-        files: ['test/{,*/}*.js'],
-        tasks: ['browserify:test', 'mocha']
-      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -56,6 +52,7 @@ module.exports = function (grunt) {
       },
       ify: {
         files: '.tmp/scripts/main.js',
+        tasks: ['browserify:vendor'],
         options: {
           livereload: true
         }
@@ -119,44 +116,31 @@ module.exports = function (grunt) {
         'test/spec/{,*/}*.js'
       ]
     },
-    mocha: {
-      all: {
-        options: {
-          run: true,
-          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-        }
-      }
-    },
     sass: {
       dev: {
         options: {
-          includePaths: ['<%= yeoman.app %>/scss', '<%= yeoman.vendor %>/foundation/scss']
+          //style: 'expanded',
+          //lineNumbers:true,
+          loadPath: ['<%= bowerrc.directory %>/foundation/scss/', '<%= bowerrc.directory %>/bourbon/dist/']
         },
         files: {
-          '.tmp/styles/app.css': '<%= yeoman.app %>/scss/app.scss'
+          '.tmp/styles/app.css': '<%= yeoman.app %>/scss/app.scss',
+          '.tmp/styles/flipclock.css': '<%= yeoman.app %>/scss/flipclock.scss'
         }
       },
       dist: {
         options: {
-          includePaths: ['<%= yeoman.app %>/scss', '<%= yeoman.vendor %>/foundation/scss']
+          loadPath: ['<%= bowerrc.directory %>/foundation/scss/', '<%= bowerrc.directory %>/bourbon/dist/']
         },
         files: {
-          '<%= yeoman.dist %>/styles/app.css': '<%= yeoman.app %>/scss/app.scss'
-        }
-      },
-      'dist-min': {
-        options: {
-          outputStyle: 'compressed',
-          includePaths: ['<%= yeoman.app %>/scss', '<%= yeoman.vendor %>/foundation/scss']
-        },
-        files: {
-          '<%= yeoman.dist %>/styles/app.min.css': '<%= yeoman.app %>/scss/app.scss'
+          '<%= yeoman.dist %>/styles/app.css': '<%= yeoman.app %>/scss/app.scss',
+          '<%= yeoman.dist %>/styles/flipclock.css': '<%= yeoman.app %>/scss/flipclock.scss'
         }
       }
     },
     browserify: {
       bower: {
-        src: ['<%= yeoman.app %>/scripts/main.js'],
+        src: ['<%= yeoman.app %>/scripts/bower.js'],
         dest: '.tmp/scripts/vendor.js',
         options: {
           transform: ['debowerify']
@@ -181,28 +165,27 @@ module.exports = function (grunt) {
       },
       dev: {
         src: ['<%= yeoman.app %>/scripts/main.js'],
-        dest: '.tmp/scripts/main2.js',
+        dest: '.tmp/scripts/main.js',
         options: {
           debug: true,
+          bundleOptions: {
+            standalone: 'mybundle' //TODO: FIX!
+          },
           transform: ['debowerify']
-          //alias:
-          //  [
-          //    'jQuery:jquery'
-          //  ]
         }
       },
       distVendor: {
-        src: [],
+        src: ['<%= yeoman.app %>/scripts/bower.js'],
         dest: '<%= yeoman.dist %>/scripts/vendor.js',
         options: {
-          require: ['jquery']
+          transform: ['debowerify']
         }
       },
       dist: {
-        src: ['<%= yeoman.app %>/scripts/*.js'],
+        src: ['<%= yeoman.app %>/scripts/main.js'],
         dest: '<%= yeoman.dist %>/scripts/main.js',
         options: {
-          external: ['jquery']
+          transform: ['debowerify']
         }
       }
     },
@@ -212,9 +195,6 @@ module.exports = function (grunt) {
         standalone: 'mybundle'
       },
       example: {
-        options: {
-          external: ['jquery']
-        },
         src: './<%= yeoman.app %>/scripts/main.js',
         dest: '.tmp/scripts/main.js'
       }
@@ -243,13 +223,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: ['.tmp/scripts/vendor.js', '.tmp/scripts/main.js'],
-        dest: '.tmp/scripts/app.js'
-      }
-    },
-    'bower-install': {
-      app: {
-        html: '<%= yeoman.app %>/index.html',
-        ignorePath: '<%= yeoman.app %>/'
+        dest: '<%= yeoman.dist %>/scripts/app.js'
       }
     },
     rev: {
@@ -398,8 +372,8 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'sass:dev',
+        'browserify:bower',
         'browserify:dev',
-        //'browserify:bower',
         'copy:styles'
       ],
       test: [
@@ -465,6 +439,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
+    'concat:dist',
     'autoprefixer',
     'modernizr',
     'copy:dist',
@@ -482,7 +457,7 @@ module.exports = function (grunt) {
     //'watchify',
     'clean:server',
     'concurrent:server',
-    'concat:dev',
+    //'concat:dev',
     'autoprefixer',
     'connect:livereload',
     'watch:ify'

@@ -1,52 +1,47 @@
-/**
- * Created by Johan on 2014-09-06.
- */
 'use strict';
 
 var $ = require('jquery');
 
 /**
- * NAME
- * @module ModuleName
- * @PublicMethod PublicMethod
- * @return return
+ * Random - A module for showing a randomized timer.
+ * @module Random
+ * @PublicMethod Init
  */
+
 module.exports = (function () {
   var button,
     min,
     max,
     random,
     randomTimeRetrieved,
-    timeRetrieved;
+    timeRetrieved,
+    secondsPast,
+    randomTimeInSeconds;
 
   function Init() {
     button = $('.js-random__button');
     getLocalStorage();
     if (randomTimeRetrieved !== null) {
-      var t1 = new Date();
-      var t2 = new Date(timeRetrieved);
-      var dif = t1.getTime() - t2.getTime();
-      var Seconds_from_T1_to_T2 = dif / 1000;
-      var randomTimeInSeconds = randomTimeRetrieved * 60;
-      if (randomTimeInSeconds > Seconds_from_T1_to_T2 ) {
-        var timeleft = randomTimeInSeconds - Seconds_from_T1_to_T2;
-        var clock = $('.clock').FlipClock(timeleft, {
-          language: 'sv',
-          countdown: true,
-          callbacks: {
-            stop: function () {
-              $('.message').html('Bra jobbat!')
-            }
-          }
-        });
+      var secondsPast = getSecondsPast();
+      randomTimeInSeconds = randomTimeRetrieved * 60;
+      if (randomTimeInSeconds > secondsPast) {
+        displayTimeLeft();
       }
     }
     button.click(function () {
       getMaxMin();
       getRandomNumber();
-      printRandomNumber();
+      displayRandomNumber();
       setLocalStorage();
     });
+  }
+
+  function getSecondsPast() {
+    var timeNow = new Date(),
+      timeBefore = new Date(timeRetrieved),
+      timeDifference = timeNow.getTime() - timeBefore.getTime();
+    secondsPast = timeDifference / 1000;
+    return secondsPast;
   }
 
   function getMaxMin() {
@@ -58,13 +53,26 @@ module.exports = (function () {
     random = Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  function printRandomNumber() {
-    var clock = $('.clock').FlipClock(random * 60, {
+  function displayTimeLeft() {
+    var timeleft = randomTimeInSeconds - secondsPast;
+    $('.clock').FlipClock(timeleft, {
       language: 'sv',
       countdown: true,
       callbacks: {
         stop: function () {
-          $('.message').html('Bra jobbat!')
+          $('.message').html('Bra jobbat!');
+        }
+      }
+    });
+  }
+
+  function displayRandomNumber() {
+    $('.clock').FlipClock(random * 60, {
+      language: 'sv',
+      countdown: true,
+      callbacks: {
+        stop: function () {
+          $('.message').html('Bra jobbat!');
         }
       }
     });
