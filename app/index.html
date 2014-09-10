@@ -2,52 +2,69 @@
 <html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stå upp!</title>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="styles/app.css" />
-    <link rel="stylesheet" href="styles/flipclock.css" />
-    <script src="bower_components/modernizr/modernizr.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stå upp!</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles/app.css"/>
+  <link rel="stylesheet" href="styles/flipclock.css"/>
+  <script src="bower_components/modernizr/modernizr.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
 </head>
 
 <body>
-    <div class="row">
-        <div class="large-6 push-2 columns">
-            <h1 class="4">STÅ UPP!</h1>
-        </div>
-    </div>
+<div class="row">
+  <div class="large-6 push-2 columns">
+    <h1 class="4">STÅ UPP!</h1>
+  </div>
+</div>
 
-      <div class="row">
-        <form>
-        <div class="large-4 columns">
-            <input class="random__minutes random__minutes--min" aria-label="Minuter minimum" type="text" placeholder="Minuter minimum" />
-        </div>
-        <div class="large-4 columns">
-          <input class="random__minutes random__minutes--max" aria-label="Minuter maximum" type="text" placeholder="Minuter maximum" />
-        </div>
-        <div class="large-4 columns">
-          <a href="#" class="random__button js-random__button button tiny">Slumpa tid</a>
-        </div>
-        </form>
-      </div>
-    <div class="row">
-      <div class="large-11 push-1 columns">
-        <div class="clock"></div>
-      </div>
+<div class="row">
+  <form>
+    <div class="large-4 columns">
+      <input class="random__minutes random__minutes--min" aria-label="Minuter minimum" type="text"
+             placeholder="Minuter minimum"/>
     </div>
-    <div class="row">
-      <div class="large-10 push-2 columns">
-        <h1 class="message"></h1>
-        </div>
+    <div class="large-4 columns">
+      <input class="random__minutes random__minutes--max" aria-label="Minuter maximum" type="text"
+             placeholder="Minuter maximum"/>
     </div>
-    <!--
-    Scripts
-    ==================================================
-    -->
-    <script src="scripts/vendor.js"></script>
-    <script src="scripts/main.js"></script>
+    <div class="large-4 columns">
+      <a href="#" class="random__button js-random__button button tiny">Slumpa tid</a>
+    </div>
+  </form>
+</div>
+<div class="row">
+  <div class="large-11 push-1 columns">
+    <div class="clock"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="large-10 push-2 columns">
+    <h1 class="message"></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="large-4 columns">
+      <input class="dictator__week" type="text" placeholder="Vecka"/>
+    </div>
+    <div class="large-4 columns">
+      <input class="dictator__name" type="text" placeholder="Namn"/>
+    </div>
+    <div class="large-4 columns">
+      <a href="#" class="dictator__button js-dictator__button button tiny">Lägg till diktator</a>
+    </div>
+  </div>
+</div>
+
+<!--
+Scripts
+==================================================
+-->
+<!-- <script src="scripts/vendor.js"></script> -->
+<script src="scripts/main.js"></script>
 </body>
 
 </html>

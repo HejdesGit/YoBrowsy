@@ -1,7 +1,8 @@
 'use strict';
 
-var $ = require('jquery');
-
+var jQuery = require('jquery'),
+    $ = jQuery,
+    FlipClock = require('FlipClock');
 /**
  * Random - A module for showing a randomized timer.
  * @module Random

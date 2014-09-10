@@ -33,7 +33,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= yeoman.app %>/scss/{,*/}*.{scss,sass}'],
-        tasks: ['sass:dev', 'autoprefixer']
+        tasks: ['newer:sass:dev', 'autoprefixer']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
       },
       ify: {
         files: '.tmp/scripts/main.js',
-        tasks: ['browserify:vendor'],
+        tasks: ['browserify:dev, '],
         options: {
           livereload: true
         }
@@ -165,14 +165,7 @@ module.exports = function (grunt) {
       },
       dev: {
         src: ['<%= yeoman.app %>/scripts/main.js'],
-        dest: '.tmp/scripts/main.js',
-        options: {
-          debug: true,
-          bundleOptions: {
-            standalone: 'mybundle' //TODO: FIX!
-          },
-          transform: ['debowerify']
-        }
+        dest: '.tmp/scripts/main.js'
       },
       distVendor: {
         src: ['<%= yeoman.app %>/scripts/bower.js'],
@@ -192,6 +185,7 @@ module.exports = function (grunt) {
     watchify: {
       options: {
         debug: false,
+        ignoreMissing: false,
         standalone: 'mybundle'
       },
       example: {
@@ -457,7 +451,7 @@ module.exports = function (grunt) {
     //'watchify',
     'clean:server',
     'concurrent:server',
-    //'concat:dev',
+    'concat:dev',
     'autoprefixer',
     'connect:livereload',
     'watch:ify'

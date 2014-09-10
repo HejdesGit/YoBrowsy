@@ -6,10 +6,12 @@
  */
 
 'use strict';
-require('jquery');
-window.jQuery = require('jquery');
-window.jquery = require('jquery');
-require('FlipClock');
 var random = require('./random');
+var dictator = require('./dictator');
+var week = require('./week');
+var card = require('./card');
 
 random.Init();
+dictator.Init();
+week.Init();
+card.Init();
