@@ -52,7 +52,7 @@ module.exports = function (grunt) {
       },
       ify: {
         files: '.tmp/scripts/main.js',
-        tasks: ['browserify:dev, '],
+        //tasks: ['browserify:dev'],
         options: {
           livereload: true
         }
@@ -165,7 +165,11 @@ module.exports = function (grunt) {
       },
       dev: {
         src: ['<%= yeoman.app %>/scripts/main.js'],
-        dest: '.tmp/scripts/main.js'
+        dest: '.tmp/scripts/main.js',
+        options: {
+          debug: 'true',
+          standalone: 'bundle'
+        }
       },
       distVendor: {
         src: ['<%= yeoman.app %>/scripts/bower.js'],
@@ -184,8 +188,7 @@ module.exports = function (grunt) {
     },
     watchify: {
       options: {
-        debug: false,
-        ignoreMissing: false,
+        debug: true,
         standalone: 'mybundle'
       },
       example: {
@@ -448,7 +451,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('dev', [
-    //'watchify',
+    'watchify',
     'clean:server',
     'concurrent:server',
     'concat:dev',

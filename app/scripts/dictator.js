@@ -15,8 +15,12 @@ module.exports = (function () {
     dictatorName,
     myFirebaseRef;
 
+  var config = {
+    firebaseURL: 'https://fiery-torch-4818.firebaseio.com/'
+  };
+
   function Init() {
-    myFirebaseRef = new Firebase("https://fiery-torch-4818.firebaseio.com/");
+    myFirebaseRef = new Firebase(config.firebaseURL);
     button = $('.js-dictator__button');
     //readAllFromFirebase();
     readSingleFromFirebase();
@@ -53,6 +57,7 @@ module.exports = (function () {
   }
 
   return {
-    Init: Init
+    Init: Init,
+    config: config
   };
 }());

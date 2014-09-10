@@ -1,8 +1,8 @@
 'use strict';
 
 var jQuery = require('jquery'),
-    $ = jQuery,
-    FlipClock = require('FlipClock');
+  $ = jQuery,
+  FlipClock = require('FlipClock');
 /**
  * Random - A module for showing a randomized timer.
  * @module Random
@@ -19,8 +19,12 @@ module.exports = (function () {
     secondsPast,
     randomTimeInSeconds;
 
+  var config = {
+    button: '.js-random__button'
+  };
+
   function Init() {
-    button = $('.js-random__button');
+    button = $(config.button);
     getLocalStorage();
     if (randomTimeRetrieved !== null) {
       var secondsPast = getSecondsPast();
@@ -90,6 +94,7 @@ module.exports = (function () {
   }
 
   return {
-    Init: Init
+    Init: Init,
+    config:config
   };
 }());
