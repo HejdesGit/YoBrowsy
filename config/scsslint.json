@@ -1,0 +1,10 @@
+{
+  "allFiles": [
+    "<%= yeoman.app %>/scss/*.scss"
+  ],
+  "options": {
+    "config": ".scss-lint.yml",
+    "reporterOutput": "scss-lint-report.xml",
+    "colorizeOutput": true
+  }
+}

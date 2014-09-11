@@ -1,0 +1,6 @@
+{
+  "app": "app",
+  "dist": "public",
+  "vendor": "<%= bowerrc.directory %>",
+  "node": "node_modules"
+}

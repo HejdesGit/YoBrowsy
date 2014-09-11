@@ -1,0 +1,12 @@
+{
+  "options": {
+    "jshintrc": ".jshintrc",
+    "reporter": "C:\\Users\\Johan\\Documents\\Project\\BrowseryfiYO\\node_modules\\jshint-stylish\\stylish.js"
+  },
+  "all": [
+    "Gruntfile.js",
+    "<%= yeoman.app %>/scripts/{,*/}*.js",
+    "!<%= yeoman.app %>/scripts/vendor/*",
+    "test/spec/{,*/}*.js"
+  ]
+}

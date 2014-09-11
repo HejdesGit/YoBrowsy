@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "options": {
+      "pretty": true,
+      "data": {
+        "debug": true,
+        "timestamp": "<%= new Date().getTime() %>"
+      }
+    },
+    "files": {
+      "<%= yeoman.app %>/index.html": [
+        "<%= yeoman.app %>/templates/index.jade"
+      ]
+    }
+  },
+  "dist": {
+    "files": {
+      "<%= yeoman.app %>/index.html": [
+        "<%= yeoman.app %>/templates/index.jade"
+      ]
+    }
+  }
+}

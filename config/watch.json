@@ -1,0 +1,42 @@
+{
+  "gruntfile": {
+    "files": [
+      "Gruntfile.js"
+    ]
+  },
+  "sass": {
+    "files": [
+      "<%= yeoman.app %>/scss/{,*/}*.{scss,sass}"
+    ],
+    "tasks": [
+      "newer:sass:dev",
+      "autoprefixer"
+    ]
+  },
+  "styles": {
+    "files": [
+      "<%= yeoman.app %>/styles/{,*/}*.css"
+    ],
+    "tasks": [
+      "newer:copy:styles",
+      "autoprefixer"
+    ]
+  },
+  "livereload": {
+    "options": {
+      "livereload": "<%= connect.options.livereload %>"
+    },
+    "files": [
+      "<%= yeoman.app %>/**/*.html",
+      ".tmp/styles/{,*/}*.css",
+      "{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js",
+      "<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}"
+    ]
+  },
+  "ify": {
+    "files": ".tmp/scripts/main.js",
+    "options": {
+      "livereload": true
+    }
+  }
+}

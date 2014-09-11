@@ -1,38 +1,33 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stå upp!</title>
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="styles/app.css"/>
-  <link rel="stylesheet" href="styles/flipclock.css"/>
-  <script src="bower_components/modernizr/modernizr.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-</head>
-
-<body>
-<div class="row">
-  <div class="large-6 push-2 columns">
-    <h1 class="4">STÅ UPP!</h1>
-  </div>
-</div>
-
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St&#229; upp!</title>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/flipclock.css">
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="large-6 push-2 columns">
+        <h1 class="4">STÅ UPP!</h1>
+      </div>
+    </div>
+  </body>
+</html>
 <div class="row">
   <form>
     <div class="large-4 columns">
-      <input class="random__minutes random__minutes--min" aria-label="Minuter minimum" type="text"
-             placeholder="Minuter minimum"/>
+      <input type="text" aria-label="Minuter minimum" placeholder="Minuter minimum" class="random__minutes random__minutes--min">
     </div>
     <div class="large-4 columns">
-      <input class="random__minutes random__minutes--max" aria-label="Minuter maximum" type="text"
-             placeholder="Minuter maximum"/>
+      <input type="text" aria-label="Minuter maximum" placeholder="Minuter maximum" class="random__minutes random__minutes--max">
     </div>
-    <div class="large-4 columns">
-      <a href="#" class="random__button js-random__button button tiny">Slumpa tid</a>
-    </div>
+    <div class="large-4 columns"><a href="#" class="random__button js-random__button button tiny">Slumpa tid</a></div>
   </form>
 </div>
 <div class="row">
@@ -48,23 +43,32 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="large-4 columns">
-      <input class="dictator__week" type="text" placeholder="Vecka"/>
+      <input type="text" placeholder="Vecka" class="dictator__week">
     </div>
     <div class="large-4 columns">
-      <input class="dictator__name" type="text" placeholder="Namn"/>
+      <input type="text" placeholder="Namn" class="dictator__name">
     </div>
-    <div class="large-4 columns">
-      <a href="#" class="dictator__button js-dictator__button button tiny">Lägg till diktator</a>
-    </div>
+    <div class="large-4 columns"><a href="#" class="dictator__button js-dictator__button button tiny">Lägg till diktator</a></div>
   </div>
 </div>
-
-<!--
-Scripts
-==================================================
+<section id="aboutPage">
+  <div class="aboutMe">
+    <article class="aboutMeContainer card-front">
+      <header class="aboutHeader"></header>
+      <footer class="aboutFooter"><a href="" class="goContact">Contato</a><a class="goFlip">Curriculo</a></footer>
+    </article>
+    <!-- card back-->
+    <div class="aboutMeContainer card-back">
+      <header class="aboutHeader">
+        <h2 class="animated">Curriculo</h2>
+      </header>
+      <div class="backContent-wrap">
+        <div class="backContent animated"></div>
+      </div>
+      <footer class="aboutFooter"><a href="" class="goContact">Contato</a><a class="goFlip">Voltar</a></footer>
+    </div>
+  </div>
+</section>
+<!--  Scripts==================================================
 -->
-<!-- <script src="scripts/vendor.js"></script> -->
 <script src="scripts/main.js"></script>
-</body>
-
-</html>

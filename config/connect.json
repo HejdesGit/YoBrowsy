@@ -1,0 +1,32 @@
+{
+  "options": {
+    "port": 9000,
+    "livereload": 35729,
+    "hostname": "localhost"
+  },
+  "livereload": {
+    "options": {
+      "open": true,
+      "base": [
+        ".tmp",
+        "<%= yeoman.app %>"
+      ]
+    }
+  },
+  "test": {
+    "options": {
+      "base": [
+        ".tmp",
+        "test",
+        "<%= yeoman.app %>"
+      ]
+    }
+  },
+  "dist": {
+    "options": {
+      "open": true,
+      "base": "",
+      "livereload": false
+    }
+  }
+}
