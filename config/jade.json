@@ -1,11 +1,7 @@
 {
   "dev": {
     "options": {
-      "pretty": true,
-      "data": {
-        "debug": true,
-        "timestamp": "<%= new Date().getTime() %>"
-      }
+      "pretty": true
     },
     "files": {
       "<%= yeoman.app %>/index.html": [

@@ -1,6 +1,7 @@
 {
   "dev": {
     "options": {
+      "quiet": true,
       "loadPath": [
         "<%= bowerrc.directory %>/foundation/scss/",
         "<%= bowerrc.directory %>/bourbon/dist/"

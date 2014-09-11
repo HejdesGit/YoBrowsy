@@ -14,14 +14,12 @@ html.no-js(lang="en")
     .row
       .large-6.push-2.columns
         h1.4 STÅ UPP!
-.row
-  form
-    .large-4.columns
-      input.random__minutes.random__minutes--min(type="text", aria-label="Minuter minimum", placeholder="Minuter minimum")
-    .large-4.columns
-      input.random__minutes.random__minutes--max(type="text", aria-label="Minuter maximum", placeholder="Minuter maximum")
-    .large-4.columns
-      a.random__button.js-random__button.button.tiny(href="#") Slumpa tid
+.random
+  div.random__minutes
+    input.random__minutes--min(type="text", aria-label="Minuter minimum", placeholder="Minuter minimum")
+  div.random__minutes
+    input.random__minutes--max(type="text", aria-label="Minuter maximum", placeholder="Minuter maximum")
+  a.random__button.js-random__button(href="#") Slumpa tid
 .row
   .large-11.push-1.columns
     .clock

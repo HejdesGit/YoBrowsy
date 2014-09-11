@@ -66,10 +66,14 @@ module.exports = function (grunt) {
   grunt.registerTask('dev', [
     'watchify',
     'clean:server',
+    'newer:jade:dev',
     'concurrent:server',
     'concat:dev',
     'autoprefixer',
     'connect:livereload',
     'watch:ify'
+  ]);
+  grunt.registerTask('devWatch', [
+    'concurrent:jadesass'
   ]);
 };

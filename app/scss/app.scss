@@ -8,15 +8,15 @@
    ======================================================================== */
 @import "foundation";
 @import "settings";
-
+//@import "csswizardry-grids";
 
 /* Mixins (User defined mixins)
    ======================================================================== */
-
+@import "mixins/mixin";
 
 /* Components
    ======================================================================== */
 @import "components/base";
+@import "components/_card";
 
 @import "normalize";
-

@@ -1,4 +1,7 @@
 {
+  "options": {
+    "logConcurrentOutput": true
+  },
   "server": [
     "newer:sass:dev",
     "browserify:dev",
@@ -19,5 +22,9 @@
     "imagemin",
     "svgmin",
     "htmlmin"
+  ],
+  "jadesass": [
+    "watch:sass",
+    "watch:jade"
   ]
 }

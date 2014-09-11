@@ -12,10 +12,26 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
-input{
+input {
   font-family: 'Montserrat', sans-serif !important; //TODO: FIX
 }
 
-body{
+body {
   background: url(http://subtlepatterns.com/patterns/sativa.png);
+}
+
+.random {
+  @include grid-row();
+}
+
+.random__minutes {
+  @include grid-column(4);
+  @media #{$small-only} {
+    @include grid-column(12);
+  }
+}
+
+.random__button {
+  @include grid-column(4);
+  @include button($padding: $button-tny);
 }

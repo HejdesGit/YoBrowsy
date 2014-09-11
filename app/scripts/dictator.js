@@ -51,8 +51,9 @@ module.exports = (function () {
 
   function readSingleFromFirebase() {
     myFirebaseRef.child("dictator").on('child_added', function (snapshot) {
-      var newPost = snapshot.val();
-      console.log(newPost);
+      var snapshotValue = snapshot.val(),
+        snapshotName = snapshot.name();
+      console.log("Name:" + snapshotName + " Week:" + snapshotValue.week);
     });
   }
 

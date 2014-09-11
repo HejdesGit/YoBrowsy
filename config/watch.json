@@ -9,9 +9,16 @@
       "<%= yeoman.app %>/scss/{,*/}*.{scss,sass}"
     ],
     "tasks": [
-      "newer:sass:dev",
+      "sass:dev",
       "autoprefixer"
     ]
+  },
+  "jade": {
+    "files": [
+      "<%= yeoman.app %>/templates/{,*/}*.jade"
+    ],
+    "tasks":
+      "newer:jade:dev"
   },
   "styles": {
     "files": [
