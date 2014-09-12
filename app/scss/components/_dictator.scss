@@ -1,0 +1,24 @@
+.dictator_inputs, .dictator_output {
+  @include grid-row();
+}
+
+.dictator__name, .dictator__week {
+  @include grid-column(4);
+  @media #{$small-only} {
+    @include grid-column(12);
+  }
+}
+
+.dictator__button_wrapper {
+  @include grid-column(4);
+  @media #{$small-only} {
+    @include grid-column(12);
+  }
+}
+
+.dictator__button {
+  @include button($padding: $button-tny, $radius: true);
+  @media #{$small-only} {
+    width: 100%;
+  }
+}

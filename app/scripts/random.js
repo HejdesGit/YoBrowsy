@@ -50,8 +50,8 @@ module.exports = (function () {
   }
 
   function getMaxMin() {
-    min = parseInt($('.random__minutes--min').val(), 10);
-    max = parseInt($('.random__minutes--max').val(), 10);
+    min = parseInt($('.random_inputs__minutes--min').val(), 10);
+    max = parseInt($('.random_inputs__minutes--max').val(), 10);
   }
 
   function getRandomNumber() {
@@ -65,7 +65,7 @@ module.exports = (function () {
       countdown: true,
       callbacks: {
         stop: function () {
-          $('.message').html('Bra jobbat!');
+          $('.random_message__dispaly').html('Bra jobbat!');
         }
       }
     });
@@ -77,7 +77,7 @@ module.exports = (function () {
       countdown: true,
       callbacks: {
         stop: function () {
-          $('.message').html('Bra jobbat!');
+          $('.random_message__dispaly').html('Bra jobbat!');
         }
       }
     });

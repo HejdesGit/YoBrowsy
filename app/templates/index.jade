@@ -1,5 +1,5 @@
 doctype html
-html.no-js(lang="en")
+html.no-js(lang="sv")
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -11,31 +11,12 @@ html.no-js(lang="en")
     script(src="bower_components/modernizr/modernizr.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js")
   body
-    .row
-      .large-6.push-2.columns
-        h1.4 STÅ UPP!
-.random
-  div.random__minutes
-    input.random__minutes--min(type="text", aria-label="Minuter minimum", placeholder="Minuter minimum")
-  div.random__minutes
-    input.random__minutes--max(type="text", aria-label="Minuter maximum", placeholder="Minuter maximum")
-  a.random__button.js-random__button(href="#") Slumpa tid
-.row
-  .large-11.push-1.columns
-    .clock
-.row
-  .large-10.push-2.columns
-    h1.message
-.row
-  .large-12.columns
-    .large-4.columns
-      input.dictator__week(type="text", placeholder="Vecka")
-    .large-4.columns
-      input.dictator__name(type="text", placeholder="Namn")
-    .large-4.columns
-      a.dictator__button.js-dictator__button.button.tiny(href="#") Lägg till diktator
-include card.jade
-
+    .headline
+      h1.headline__text STÅ UPP!
+include random
+include dictator
+include RWDcard
+include card
 //  Scripts
   ==================================================
 script(src="scripts/main.js")

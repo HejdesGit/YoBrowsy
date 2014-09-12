@@ -31,8 +31,8 @@ module.exports = (function () {
   }
 
   function addDictotor() {
-    dictatorWeek = parseInt($('.dictator__week').val(), 10);
-    dictatorName = $('.dictator__name').val();
+    dictatorWeek = parseInt($('.dictator__week input').val(), 10);
+    dictatorName = $('.dictator__name input').val();
   }
 
   function writeToFireBase() {
@@ -54,6 +54,7 @@ module.exports = (function () {
       var snapshotValue = snapshot.val(),
         snapshotName = snapshot.name();
       console.log("Name:" + snapshotName + " Week:" + snapshotValue.week);
+      $('.dictator_output__list').append('<li><input id="' + snapshotName + '" type="checkbox"><label for="' + snapshotName + '">' + 'Namn:' + snapshotName +' Vecka:'+ snapshotValue.week + '</label></li>');
     });
   }
 

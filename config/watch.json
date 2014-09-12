@@ -18,7 +18,7 @@
       "<%= yeoman.app %>/templates/{,*/}*.jade"
     ],
     "tasks":
-      "newer:jade:dev"
+      "jade:dev"
   },
   "styles": {
     "files": [

@@ -8,6 +8,14 @@ h1 {
   font-size: 4em !important; //TODO: FIX
 }
 
+.headline {
+  @include grid-row();
+}
+
+.headline__text {
+  @include grid-column(6, $push: 2);
+}
+
 .flip-clock-label {
   font-family: 'Montserrat', sans-serif;
 }
@@ -18,20 +26,15 @@ input {
 
 body {
   background: url(http://subtlepatterns.com/patterns/sativa.png);
+  font-family: 'Montserrat', sans-serif;
 }
 
-.random {
-  @include grid-row();
-}
+@import "random";
+@import "dictator";
 
-.random__minutes {
-  @include grid-column(4);
-  @media #{$small-only} {
-    @include grid-column(12);
-  }
-}
-
-.random__button {
-  @include grid-column(4);
-  @include button($padding: $button-tny);
+.RWDCARD {
+  box-shadow: 1px 1px 10px 3px #BDBDBD;
+  border-radius: 5px;
+  padding-top: 10px;
+  background-color: white;
 }

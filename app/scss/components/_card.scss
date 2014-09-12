@@ -1,13 +1,10 @@
-
-
-
 @import url(http://fonts.googleapis.com/css?family=Raleway:300,100,200);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
 
 #aboutPage .pageTitle {
   font: 72px 'Raleway', sans-serif;
   color: #fff;
-  color: rgba(255,255,255, .8);
+  color: rgba(255, 255, 255, .8);
   width: 100%;
   text-align: center;
   font-weight: 100;
@@ -20,7 +17,7 @@
   box-sizing: border-box;
 }
 
-#aboutPage .fa{
+#aboutPage .fa {
   color: #444;
 }
 
@@ -39,11 +36,10 @@
 .aboutMe {
   position: relative;
   width: 310px;
-  height: 480px;
   margin: 0 auto;
   border-radius: 5px;
   box-shadow: 1px 1px 10px 3px #444;
-  box-shadow: 1px 1px 10px 5px rgba(0,0,0, .3);
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, .3);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -57,11 +53,24 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   width: 310px;
-  height: 160px;
+  height: 60px;
   position: relative;
   background: url(http://felipemartinin.com.br/wp-content/themes/FelipeMartinin/img/card-header.jpg);
 }
 
+.aboutHeaderText {
+  position: absolute;
+  font: 32px 'Raleway', sans-serif;
+  font-weight: 100;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  top: 10px;
+  -webkit-animation-delay: .4s;
+  animation-delay: .4s;
+}
 
 .aboutHeader .headerProfile {
   position: absolute;
@@ -86,7 +95,7 @@
   position: absolute;
   font: 23px 'Raleway', sans-serif;
   color: #fff;
-  color: rgba(255,255,255, .8);
+  color: rgba(255, 255, 255, .8);
   text-shadow: 1px 1px 10px #111;
   top: 105px;
   left: 145px;
@@ -130,19 +139,19 @@
   width: 310px;
 }
 
-.socialIcons a i{
+.socialIcons a i {
   padding: 10px 12px;
   border-right: 1px solid #dfdfdf;
 
 }
 
-.socialIcons a .first-icon{
+.socialIcons a .first-icon {
   margin-left: 10px;
   padding-right: 15px;
 
 }
 
-.socialIcons a .last-icon{
+.socialIcons a .last-icon {
   border-right: none;
 
 }
@@ -155,6 +164,9 @@
   background: #fff;
   border-top: 1px solid #ccc;
   padding: 17px 10px;
+}
+.middleFront{
+  background-color: white;
 }
 
 .aboutFooter a {
@@ -224,7 +236,7 @@
   font: 32px 'Raleway', sans-serif;
   font-weight: 100;
   color: #fff;
-  color: rgba(255,255,255, .8);
+  color: rgba(255, 255, 255, .8);
   width: 100%;
   text-align: center;
   margin: auto;
@@ -237,7 +249,6 @@
 
 .aboutMeContainer {
   width: 310px;
-  height: 480px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   position: absolute;
@@ -255,7 +266,6 @@
 .aboutMe .card-back .backContent {
   position: relative;
   background: #fff;
-  height: 323px;
   overflow: auto;
   -webkit-animation-delay: .6s;
   -moz-animation-delay: .6s;
@@ -271,7 +281,7 @@
   color: #888;
 }
 
-.aboutMe .card-back .backContent p b{
+.aboutMe .card-back .backContent p b {
   color: #555;
 }
 
@@ -283,7 +293,7 @@
   width: 8px;
 }
 
-.card-back .goFlip{
+.card-back .goFlip {
   padding: 10px 50px;
 }
 
@@ -295,11 +305,11 @@
 
 /* Handle */
 .aboutMe .card-back .backContent::-webkit-scrollbar-thumb {
-  opacity:0.1;
+  opacity: 0.1;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: rgba(0,0,0,0.5);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .rotate-3d {

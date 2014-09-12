@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="sv" class="no-js">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,57 +12,65 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
   </head>
   <body>
-    <div class="row">
-      <div class="large-6 push-2 columns">
-        <h1 class="4">STÅ UPP!</h1>
-      </div>
+    <div class="headline">
+      <h1 class="headline__text">STÅ UPP!</h1>
     </div>
   </body>
 </html>
 <div class="random">
-  <div class="random__minutes">
-    <input type="text" aria-label="Minuter minimum" placeholder="Minuter minimum" class="random__minutes--min">
-  </div>
-  <div class="random__minutes">
-    <input type="text" aria-label="Minuter maximum" placeholder="Minuter maximum" class="random__minutes--max">
-  </div><a href="#" class="random__button js-random__button">Slumpa tid</a>
-</div>
-<div class="row">
-  <div class="large-11 push-1 columns">
-    <div class="clock"></div>
-  </div>
-</div>
-<div class="row">
-  <div class="large-10 push-2 columns">
-    <h1 class="message"></h1>
-  </div>
-</div>
-<div class="row">
-  <div class="large-12 columns">
-    <div class="large-4 columns">
-      <input type="text" placeholder="Vecka" class="dictator__week">
+  <div class="random_inputs">
+    <div class="random_inputs__minutes">
+      <input type="text" aria-label="Minuter minimum" placeholder="Minuter minimum" class="random_inputs__minutes--min">
     </div>
-    <div class="large-4 columns">
-      <input type="text" placeholder="Namn" class="dictator__name">
+    <div class="random_inputs__minutes">
+      <input type="text" aria-label="Minuter maximum" placeholder="Minuter maximum" class="random_inputs__minutes--max">
     </div>
-    <div class="large-4 columns"><a href="#" class="dictator__button js-dictator__button button tiny">Lägg till diktator</a></div>
+    <div class="random__button_wrapper"><a href="#" class="random__button js-random__button">Slumpa tid</a></div>
   </div>
+  <div class="random_clock">
+    <div class="random_clock__display">
+      <div class="clock"></div>
+    </div>
+  </div>
+  <div class="random_message">
+    <h1 class="random_message__dispaly"></h1>
+  </div>
+</div>
+<div class="dictator">
+  <div class="dictator_inputs">
+    <div class="dictator__week">
+      <input type="text" placeholder="Vecka">
+    </div>
+    <div class="dictator__name">
+      <input type="text" placeholder="Namn">
+    </div>
+    <div class="dictator__button_wrapper"><a href="#" class="dictator__button js-dictator__button">Lägg till diktator</a></div>
+  </div>
+  <div class="dictator_output">
+    <ul class="dictator_output__list"></ul>
+  </div>
+</div>
+<div class="row">
+  <div class="large-6 columns RWDCARD"></div>
 </div>
 <section id="aboutPage">
   <div class="aboutMe">
     <article class="aboutMeContainer card-front">
-      <header class="aboutHeader"></header>
-      <footer class="aboutFooter"><a href="" class="goContact">Contato</a><a class="goFlip">Curriculo</a></footer>
+      <header class="aboutHeader">
+        <h2 class="aboutHeaderText">Front</h2>
+      </header>
+      <div class="middleFront">adadadadadadadad <br><br></div>
+      <footer class="aboutFooter"><a class="goFlip">Inställningar ></a></footer>
     </article>
     <!-- card back-->
     <div class="aboutMeContainer card-back">
       <header class="aboutHeader">
-        <h2 class="animated">Curriculo</h2>
+        <h2 class="animated">Inställningar</h2>
       </header>
       <div class="backContent-wrap">
-        <div class="backContent animated"></div>
+        <div class="backCVoltarontent animated"></div>
       </div>
-      <footer class="aboutFooter"><a href="" class="goContact">Contato</a><a class="goFlip">Voltar</a></footer>
+      <footer class="aboutFooter"><a class="goFlip">< Front</a></footer>
     </div>
   </div>
 </section>
