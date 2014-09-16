@@ -1,7 +1,8 @@
 'use strict';
 
 var $ = require('jquery'),
-  Firebase = require("firebase");
+  Firebase = require("firebase"),
+  Week = require("./week");
 
 /**
  * Dictator - A module for showing a who's the dictator.
@@ -11,50 +12,76 @@ var $ = require('jquery'),
 
 module.exports = (function () {
   var button,
-    dictatorWeek,
+    dictatorNumber,
     dictatorName,
-    myFirebaseRef;
+    firebaseURL,
+    startWeek,
+    dictators,
+    currentDictator;
 
   var config = {
     firebaseURL: 'https://fiery-torch-4818.firebaseio.com/'
   };
 
   function Init() {
-    myFirebaseRef = new Firebase(config.firebaseURL);
+    firebaseURL = new Firebase(config.firebaseURL);
     button = $('.js-dictator__button');
-    //readAllFromFirebase();
+    getDictatorsFromFirebase();
+    getStartWeek();
+    firebaseURL.once('value', function (snap) {
+      //console.log('initial data loaded!', Object.keys(snap.val()).length === count);
+      getCurrentDictator();
+    });
+
     readSingleFromFirebase();
-    button.click(function () {
+    button.click(function (event) {
+      event.preventDefault ? event.preventDefault() : event.returnValue = false;
       addDictotor();
       writeToFireBase();
     });
   }
 
   function addDictotor() {
-    dictatorWeek = parseInt($('.dictator__week input').val(), 10);
+    dictatorNumber = parseInt($('.dictator__number input').val(), 10);
     dictatorName = $('.dictator__name input').val();
   }
 
   function writeToFireBase() {
-    myFirebaseRef.child("dictator/" + dictatorName).set({
-      week: dictatorWeek
-    });
+    var dictator = {};
+    dictator[dictatorNumber] = dictatorName;
+    firebaseURL.child("dictator/").update(dictator);
   }
 
-  function readAllFromFirebase() {
-    myFirebaseRef.child("dictator").on('value', function (snapshot) {
-      console.log(snapshot.val());
+  function getDictatorsFromFirebase() {
+    firebaseURL.child("dictator").on('value', function (snapshot) {
+      dictators = snapshot.val();
     }, function (errorObject) {
       console.log('The read failed: ' + errorObject.code);
     });
   }
 
+  function getStartWeek() {
+    firebaseURL.child("StartWeek").on('value', function (snapshot) {
+      startWeek = snapshot.val();
+    }, function (errorObject) {
+      console.log('The read failed: ' + errorObject.code);
+    });
+  }
+
+  function getCurrentDictator() {
+    var curWeek = Week.getWeek();
+    var weekFromStart = curWeek - startWeek;
+    var maxDictator = 10;
+    var currentNumber = weekFromStart % maxDictator;
+    currentDictator = dictators[currentNumber];
+    $('.currentDictator').text(currentDictator);
+  }
+
   function readSingleFromFirebase() {
-    myFirebaseRef.child("dictator").on('child_added', function (snapshot) {
+    firebaseURL.child("dictator").on('child_added', function (snapshot) {
       var snapshotValue = snapshot.val(),
         snapshotName = snapshot.name();
-      console.log("Name:" + snapshotName + " Week:" + snapshotValue.week);
-      $('.dictator_output__list').append('<li><input id="' + snapshotName + '" type="checkbox"><label for="' + snapshotName + '">' + 'Namn:' + snapshotName +' Vecka:'+ snapshotValue.week + '</label></li>');
+      $('.dictator_output__list').append('<li><label>' + '#: ' + snapshotName + ' Namn: ' + snapshotValue + '</label></li>');
     });
   }
 

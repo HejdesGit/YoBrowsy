@@ -11,7 +11,7 @@
   },
   "dist": {
     "files": {
-      "<%= yeoman.app %>/index.html": [
+      "public/index.html": [
         "<%= yeoman.app %>/templates/index.jade"
       ]
     }

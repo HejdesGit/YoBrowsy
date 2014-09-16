@@ -20,7 +20,8 @@ module.exports = (function () {
     randomTimeInSeconds;
 
   var config = {
-    button: '.js-random__button'
+    button: '.js-random__button',
+    firebaseURL: 'https://fiery-torch-4818.firebaseio.com/'
   };
 
   function Init() {
@@ -34,11 +35,21 @@ module.exports = (function () {
       }
     }
     button.click(function () {
+      event.preventDefault ? event.preventDefault() : event.returnValue = false;
       getMaxMin();
       getRandomNumber();
       displayRandomNumber();
       setLocalStorage();
+      setTimeInFirebase();
     });
+  }
+
+  function setTimeInFirebase() {
+    var firebaseURL = new Firebase(config.firebaseURL);
+    var timeNow = new Date();
+    var timeObject = {};
+    timeObject[timeNow] = random;
+    firebaseURL.child("StandUp/").update(timeObject);
   }
 
   function getSecondsPast() {
@@ -95,6 +106,6 @@ module.exports = (function () {
 
   return {
     Init: Init,
-    config:config
+    config: config
   };
 }());

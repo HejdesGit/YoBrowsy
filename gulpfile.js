@@ -1,36 +1,58 @@
 'use strict';
 
 var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
+var rubySass = require('gulp-ruby-sass');
 var jade = require('gulp-jade');
 var watch = require('gulp-watch');
+var notify = require("gulp-notify");
+var plumber = require('gulp-plumber');
 
 gulp.task('default', function () {
   return gulp.src('app/scss/app.scss')
-    .pipe(sass({
+    .pipe(plumber())
+    .pipe(rubySass({
       sourcemap: true,
       sourcemapPath: '../scss',
       quiet: true,
-      loadPath: 'app/bower_components/foundation/scss/'
+      loadPath: 'app/bower_components/foundation/scss/',
+      bundleExec:true
     }))
     .on('error', function (err) {
       console.log(err.message);
     })
-    .pipe(gulp.dest('.tmp/styles/app.css'));
+    .pipe(gulp.dest('.tmp/styles/'));
 });
 
 gulp.task('templates', function () {
-  var YOUR_LOCALS = {};
+  var currentDate = new Date();
+  var currentTime =
+    currentDate.getHours() + ":"
+    + currentDate.getMinutes() + ":"
+    + currentDate.getSeconds();
+  var variables = {
+    currentTime: currentTime
+  };
 
   gulp.src('app/templates/index.jade')
+    .pipe(plumber())
     .pipe(jade({
-      locals: YOUR_LOCALS, pretty: true
+      pretty: true
     }))
-    .pipe(gulp.dest('app/'));
+    .pipe(gulp.dest('app/'))
+    .pipe(notify({
+      message: variables.currentTime,
+      title: "Jade generated!"
+    }))
 });
 
 gulp.task('watch', function () {
-  watch('app/templates/index.jade', function (files, cb) {
-    gulp.start('templates', cb);
+  watch('app/templates/*.jade', function () {
+    gulp.start('templates');
+  });
+});
+
+gulp.task('watch2', function () {
+  watch('app/scss/**/*.scss', function () {
+    gulp.start('default');
   });
 });

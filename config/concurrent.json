@@ -16,12 +16,11 @@
   ],
   "dist": [
     "sass:dist",
-    "browserify:distVendor",
     "browserify:dist",
     "copy:styles",
     "imagemin",
     "svgmin",
-    "htmlmin"
+    "jade:dist"
   ],
   "jadesass": [
     "watch:sass",

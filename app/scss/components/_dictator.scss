@@ -2,8 +2,15 @@
   @include grid-row();
 }
 
-.dictator__name, .dictator__week {
-  @include grid-column(4);
+.dictator__number {
+  @include grid-column(3);
+  @media #{$small-only} {
+    @include grid-column(12);
+  }
+}
+
+.dictator__name {
+  @include grid-column(5);
   @media #{$small-only} {
     @include grid-column(12);
   }
@@ -21,4 +28,9 @@
   @media #{$small-only} {
     width: 100%;
   }
+}
+
+.currentDictator {
+  text-align: center;
+  font-size: 40px;
 }

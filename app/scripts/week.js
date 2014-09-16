@@ -8,11 +8,6 @@
  */
 
 module.exports = (function () {
-  function Init() {
-    getWeek();
-  }
-
-
   function getWeek() {
     Date.prototype.getWeek = function () {
       var onejan = new Date(this.getFullYear(), 0, 1);
@@ -21,12 +16,10 @@ module.exports = (function () {
 
     var weekNumber = (new Date()).getWeek();
 
-    var dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    var now = new Date();
-    console.log(weekNumber);
+    return weekNumber;
   }
 
   return {
-    Init: Init
+    getWeek: getWeek
   };
 }());

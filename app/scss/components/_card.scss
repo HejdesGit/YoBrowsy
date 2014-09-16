@@ -1,3 +1,7 @@
+.dictator_output__list {
+  list-style: none;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Raleway:300,100,200);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
 
@@ -36,7 +40,7 @@
 .aboutMe {
   position: relative;
   width: 310px;
-  margin: 0 auto;
+  //  margin: 0 auto;
   border-radius: 5px;
   box-shadow: 1px 1px 10px 3px #444;
   box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, .3);
@@ -59,7 +63,7 @@
 }
 
 .aboutHeaderText {
-  position: absolute;
+  //  position: absolute;
   font: 32px 'Raleway', sans-serif;
   font-weight: 100;
   color: #fff;
@@ -73,7 +77,7 @@
 }
 
 .aboutHeader .headerProfile {
-  position: absolute;
+  //  position: absolute;
   z-index: 1;
   border-radius: 100%;
   background: #fff;
@@ -92,7 +96,7 @@
 }
 
 .aboutHeader h1 {
-  position: absolute;
+  //  position: absolute;
   font: 23px 'Raleway', sans-serif;
   color: #fff;
   color: rgba(255, 255, 255, .8);
@@ -107,7 +111,7 @@
 }
 
 .aboutHeader p {
-  position: absolute;
+  //  position: absolute;
   font: 12px 'Open Sans', sans-serif;
   color: #666;
   top: 155px;
@@ -165,7 +169,8 @@
   border-top: 1px solid #ccc;
   padding: 17px 10px;
 }
-.middleFront{
+
+.middleFront {
   background-color: white;
 }
 
@@ -232,7 +237,7 @@
 }
 
 .aboutMe .card-back .aboutHeader h2 {
-  position: absolute;
+  //  position: absolute;
   font: 32px 'Raleway', sans-serif;
   font-weight: 100;
   color: #fff;
@@ -251,7 +256,7 @@
   width: 310px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
-  position: absolute;
+  //  position: absolute;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -320,4 +325,16 @@
 
 .z-up {
   z-index: 10;
+}
+
+.aboutMe.rotate-3d .card-front {
+  display: none;
+}
+
+.aboutMeContainer.card-back {
+  display: none;
+}
+
+.aboutMeContainer.card-back.z-up {
+  display: block;
 }

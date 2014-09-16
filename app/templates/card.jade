@@ -1,16 +1,22 @@
-section#aboutPage
-  .aboutMe
-    article.aboutMeContainer.card-front
-      header.aboutHeader
-        h2.aboutHeaderText Front
-      .middleFront adadadadadadadad <br><br>
-      footer.aboutFooter
-        a.goFlip Inställningar >
-    // card back
-    .aboutMeContainer.card-back
-      header.aboutHeader
-        h2.animated Inställningar
-      .backContent-wrap
-        .backCVoltarontent.animated
-      footer.aboutFooter
-        a.goFlip < Front
+.row
+  .large-12.columns
+    section#aboutPage
+      .aboutMe
+        article.aboutMeContainer.card-front
+          header.aboutHeader
+            h2.aboutHeaderText Diktator
+          .middleFront
+            .currentDictator
+          footer.aboutFooter
+            a.goFlip Inställningar >
+        // card back
+        .aboutMeContainer.card-back
+          header.aboutHeader
+            h2.animated Inställningar
+          .backContent-wrap
+            .row
+              .large-12.columns
+                include dictator
+            ul.dictator_output__list
+          footer.aboutFooter
+            a.goFlip < Front

@@ -8,10 +8,8 @@
 'use strict';
 var random = require('./random');
 var dictator = require('./dictator');
-var week = require('./week');
 var card = require('./card');
 
 random.Init();
 dictator.Init();
-week.Init();
 card.Init();
