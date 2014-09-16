@@ -3,3 +3,4 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem "sass", '3.4.0'
+ruby '2.0.0'
