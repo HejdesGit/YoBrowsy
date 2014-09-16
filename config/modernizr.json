@@ -1,0 +1,11 @@
+{
+  "dist": {
+    "devFile": "<%= yeoman.vendor %>/modernizr/modernizr.js",
+    "outputFile": "<%= yeoman.dist %>/bower_components/modernizr/modernizr.js",
+    "uglify": true,
+    "tests": [],
+    "parseFiles": true,
+    "matchCommunityTests": false,
+    "customTests": []
+  }
+}

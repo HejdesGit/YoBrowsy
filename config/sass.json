@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "options": {
+      "quiet": true,
+      "loadPath": [
+        "<%= bowerrc.directory %>/foundation/scss/",
+        "<%= bowerrc.directory %>/bourbon/dist/"
+      ]
+    },
+    "files": {
+      ".tmp/styles/app.css": "<%= yeoman.app %>/scss/app.scss",
+      ".tmp/styles/flipclock.css": "<%= yeoman.app %>/scss/flipclock.scss"
+    }
+  },
+  "dist": {
+    "options": {
+      "loadPath": [
+        "<%= bowerrc.directory %>/foundation/scss/",
+        "<%= bowerrc.directory %>/bourbon/dist/"
+      ]
+    },
+    "files": {
+      "<%= yeoman.dist %>/styles/app.css": "<%= yeoman.app %>/scss/app.scss",
+      "<%= yeoman.dist %>/styles/flipclock.css": "<%= yeoman.app %>/scss/flipclock.scss"
+    }
+  }
+}

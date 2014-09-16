@@ -1,0 +1,19 @@
+{
+  "options": {
+    "banner": "<%= banner %>"
+  },
+  "dev": {
+    "src": [
+      ".tmp/scripts/vendor.js",
+      ".tmp/scripts/main.js"
+    ],
+    "dest": ".tmp/scripts/app.js"
+  },
+  "dist": {
+    "src": [
+      ".tmp/scripts/vendor.js",
+      ".tmp/scripts/main.js"
+    ],
+    "dest": "<%= yeoman.dist %>/scripts/app.js"
+  }
+}

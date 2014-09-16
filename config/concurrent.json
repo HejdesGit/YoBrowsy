@@ -1,0 +1,29 @@
+{
+  "options": {
+    "logConcurrentOutput": true
+  },
+  "server": [
+    "newer:sass:dev",
+    "browserify:dev",
+    "copy:styles"
+  ],
+  "test": [
+    "copy:styles",
+    "jshint",
+    "browserify:vendor",
+    "browserify:dev",
+    "browserify:test"
+  ],
+  "dist": [
+    "sass:dist",
+    "browserify:dist",
+    "copy:styles",
+    "imagemin",
+    "svgmin",
+    "jade:dist"
+  ],
+  "jadesass": [
+    "watch:sass",
+    "watch:jade"
+  ]
+}

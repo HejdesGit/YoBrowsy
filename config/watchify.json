@@ -1,0 +1,10 @@
+{
+  "options": {
+    "debug": true,
+    "standalone": "mybundle"
+  },
+  "dev": {
+    "src": "./<%= yeoman.app %>/scripts/main.js",
+    "dest": ".tmp/scripts/main.js"
+  }
+}
