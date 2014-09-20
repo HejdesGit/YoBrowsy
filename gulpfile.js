@@ -11,11 +11,11 @@ gulp.task('default', function () {
   return gulp.src('app/scss/app.scss')
     .pipe(plumber())
     .pipe(rubySass({
-      sourcemap: true,
-      sourcemapPath: '../scss',
+     // sourcemap: false,
+     // sourcemapPath: '../scss',
       quiet: true,
       loadPath: 'app/bower_components/foundation/scss/',
-      bundleExec:true
+      bundleExec: true
     }))
     .on('error', function (err) {
       console.log(err.message);
