@@ -9,9 +9,15 @@
 var random = require('./random');
 var dictator = require('./dictator');
 var card = require('./card');
+<<<<<<< HEAD
 var time = require('./timer');
+=======
+>>>>>>> Hejde/master
 
 random.Init();
 dictator.Init();
 card.Init();
+<<<<<<< HEAD
 time.Init();
+=======
+>>>>>>> Hejde/master
