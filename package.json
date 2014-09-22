@@ -48,8 +48,7 @@
     "gulp-notify": "~1.6.0",
     "gulp-plumber": "~0.6.5",
     "gulp-load-plugins": "~0.6.0",
-    "gulp-autoprefixer": "~1.0.0",
-    "howler": "~1.1.25"
+    "gulp-autoprefixer": "~1.0.0"
   },
   "dependencies": {
     "express": "^4.1.2",

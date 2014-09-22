@@ -194,22 +194,28 @@
 @-webkit-keyframes asd {
   0% {
     z-index: 2; }
+
   20% {
     z-index: 4; }
+
   100% {
     z-index: 4; } }
 @-moz-keyframes asd {
   0% {
     z-index: 2; }
+
   20% {
     z-index: 4; }
+
   100% {
     z-index: 4; } }
 @keyframes asd {
   0% {
     z-index: 2; }
+
   20% {
     z-index: 4; }
+
   100% {
     z-index: 4; } }
 .flip-clock-wrapper ul.play li.flip-clock-active .down {
@@ -221,11 +227,13 @@
 @-webkit-keyframes turn {
   0% {
     -webkit-transform: rotateX(90deg); }
+
   100% {
     -webkit-transform: rotateX(0deg); } }
 @-moz-keyframes turn {
   0% {
     -moz-transform: rotateX(90deg); }
+
   100% {
     -moz-transform: rotateX(0deg); } }
 @keyframes turn {
@@ -235,6 +243,7 @@
     -ms-transform: rotateX(90deg);
     -o-transform: rotateX(90deg);
     transform: rotateX(90deg); }
+
   100% {
     -webkit-transform: rotateX(0deg);
     -moz-transform: rotateX(0deg);
@@ -250,11 +259,13 @@
 @-webkit-keyframes turn2 {
   0% {
     -webkit-transform: rotateX(0deg); }
+
   100% {
     -webkit-transform: rotateX(-90deg); } }
 @-moz-keyframes turn2 {
   0% {
     -moz-transform: rotateX(0deg); }
+
   100% {
     -moz-transform: rotateX(-90deg); } }
 @keyframes turn2 {
@@ -264,6 +275,7 @@
     -ms-transform: rotateX(0deg);
     -o-transform: rotateX(0deg);
     transform: rotateX(0deg); }
+
   100% {
     -webkit-transform: rotateX(-90deg);
     -moz-transform: rotateX(-90deg);
@@ -322,31 +334,37 @@
 @-webkit-keyframes show {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 @-moz-keyframes show {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 @keyframes show {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 @-webkit-keyframes hide {
   0% {
     opacity: 1; }
+
   100% {
     opacity: 0; } }
 @-moz-keyframes hide {
   0% {
     opacity: 1; }
+
   100% {
     opacity: 0; } }
 @keyframes hide {
   0% {
     opacity: 1; }
+
   100% {
     opacity: 0; } }
 @media screen and (max-width: 767px) {
@@ -414,5 +432,3 @@
 
   .flip-clock-wrapper ul li a div div.inn {
     font-size: 45px; } }
-
-/*# sourceMappingURL=flipclock.css.map */
