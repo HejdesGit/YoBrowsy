@@ -21,7 +21,6 @@
     @include grid-column(12);
   }
 }
-
 .dictator__button {
   @include button($padding: $button-tny, $radius: true);
   @media #{$small-only} {
