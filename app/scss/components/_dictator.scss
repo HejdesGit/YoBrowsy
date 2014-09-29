@@ -15,7 +15,6 @@
     @include grid-column(12);
   }
 }
-
 .dictator__button_wrapper {
   @include grid-column(4);
   @media #{$small-only} {
